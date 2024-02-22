@@ -19,16 +19,18 @@ int main(){
 	// Get All platforms
     std::vector<cl::Platform> all_platforms;
     cl::Platform::get(&all_platforms);
-    if(all_platforms.size()==0){
+    if(all_platforms.size()<=0){
         std::cout<<" No platforms found. Check OpenCL installation!\n";
         exit(1);
+    } else {
+    	std::cout<<" Platforms:" << all_platforms.size() << std::endl;
     }
 
     for(unsigned long int i=0; i<all_platforms.size(); i++ ) {
         cl::Platform default_platform=all_platforms[i];
 
         std::vector<cl::Device> all_devices;
-        default_platform.getDevices(CL_DEVICE_TYPE_ALL, &all_devices);
+        default_platform.getDevices(CL_DEVICE_TYPE_GPU, &all_devices);
         if(all_devices.size()==0){
             std::cout<<" No devices found. Check OpenCL installation!\n";
             exit(1);
