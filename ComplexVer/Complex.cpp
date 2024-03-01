@@ -12,7 +12,8 @@
 using namespace std;
 
 // Module
-float Complex::mod() {
+template <class T>
+float Complex<T>::mod() {
 		double mod;
 		mod= (double)(real*real) + (double)(img*img);
 		return ((float) sqrt( mod));

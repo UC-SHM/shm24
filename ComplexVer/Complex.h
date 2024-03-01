@@ -8,20 +8,21 @@
 #ifndef COMPLEX_H_
 #define COMPLEX_H_
 
+template <class T>
 class Complex {
 //private:
-	float real;	// parte real
-	float img;	// parte imagiantia
+	T real;	// parte real
+	T img;	// parte imagiantia
 public:
-	float mod();
-	void set(float vreal, float vimg);
-	void get(float &vreal,float &vimg);
+	T mod();
+	void set(T vreal, T vimg);
+	void get(T &vreal,T &vimg);
 
 	Complex operator+( const Complex &rhs);		// Addition
 	Complex operator*( const Complex &rhs);		// Product
 	Complex &operator=( const Complex &rhs);	// Equal
 	bool operator==( const Complex &rhs);
-	Complex(float vreal, float vimg);
+	Complex(T vreal, T vimg);
 	Complex();
 
 	virtual ~Complex();
