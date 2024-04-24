@@ -48,6 +48,11 @@ int main(int argc, char *argv[])
         std::vector<cl::Device> devices;
         unsigned numDevices = getDeviceList(devices);
 
+        if(numDevices==0) {
+        	std::cout << "There are  not devices" << std::endl;
+        	return 0;
+        }
+
         // Check device index in range
         if (deviceIndex >= numDevices)
         {
