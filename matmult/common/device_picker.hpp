@@ -28,6 +28,10 @@ unsigned getDeviceList(std::vector<cl::Device>& devices)
   std::vector<cl::Platform> platforms;
   cl::Platform::get(&platforms);
 
+  // no platform
+  if(platforms.size()==0) {
+	  return 0;
+  }
   // Enumerate devices
   for (unsigned int i = 0; i < platforms.size(); i++)
   {
