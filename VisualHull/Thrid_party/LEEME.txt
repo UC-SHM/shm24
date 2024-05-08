@@ -1,0 +1,20 @@
+__________________________________________________
+CImg
+__________________________________________________
+Codigo descargado de https://cimg.eu/download.html
+
+Añadir paquete:
+pacman -S mingw64/mingw-w64-x86_64-graphicsmagick
+
+Cambiar linea 123 del CMakeList.txt en examples:
+PKG_CHECK_MODULES(MAGICK GraphicsMagick++)
+
+_________________________________________________
+viewbinvox + glut
+_________________________________________________
+Descargado de:
+https://www.patrickmin.com/viewvox/ 
+https://user.xmission.com/~nate/glut.html
+
+
+

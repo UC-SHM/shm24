@@ -9,8 +9,9 @@
 #include <string>
 #include <array>
 #include <numeric>
+#define CL_HPP_ENABLE_EXCEPTIONS
 #define CL_HPP_TARGET_OPENCL_VERSION 200
-#include <CL/cl2.hpp>
+#include <CL/opencl.hpp>
 
 
 
@@ -26,11 +27,14 @@ int main(){
     	std::cout<<" Platforms:" << all_platforms.size() << std::endl;
     }
 
-    for(unsigned long int i=0; i<all_platforms.size(); i++ ) {
+    for(unsigned long int i=1; i<all_platforms.size(); i++ ) {
         cl::Platform default_platform=all_platforms[i];
 
+        std::cout << "Platform Name: " << default_platform.getInfo<CL_PLATFORM_NAME>() << std::endl;
+        std::cout << "Platform Vendor: " << default_platform.getInfo<CL_PLATFORM_VENDOR>() << std::endl;
+
         std::vector<cl::Device> all_devices;
-        default_platform.getDevices(CL_DEVICE_TYPE_GPU, &all_devices);
+        default_platform.getDevices(CL_DEVICE_TYPE_ALL, &all_devices);
         if(all_devices.size()==0){
             std::cout<<" No devices found. Check OpenCL installation!\n";
             exit(1);
